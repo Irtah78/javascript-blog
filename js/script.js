@@ -59,10 +59,13 @@ function generateTitleLinks() {
     const linkHTML =
       '<li><a href="#' + articleId + '"><span>' + title + "</span></a></li>";
 
-    /* insert link into titleList */
-    titleList.insertAdjacentHTML("beforeend", linkHTML);
+    /* insert link into html variable */
+    html += linkHTML;
   }
 
+  titleList.innerHTML = html;
+
+  /* add event listener */
   const links = document.querySelectorAll(".titles a");
   console.log(links);
   for (let link of links) {
