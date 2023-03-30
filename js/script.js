@@ -54,6 +54,7 @@ function generateTitleLinks() {
 
     /* find the title element */
     const titleElement = article.querySelector(optTitleSelector);
+
     /* get the title from the title element */
     const title = titleElement.textContent;
 
@@ -79,13 +80,18 @@ generateTitleLinks();
 function generateTags(){
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
+
   /* START LOOP: for every article: */
   for (let article of articles) {
+
     /* find tags wrapper */
     const tagsWrapper = article.querySelector(optArticleTagsSelector);
+
     /* make html variable with empty string */
     let html = '';
+
     /* get tags from data-tags attribute */
+    const articleTags = article.getAttribute('data-tags');
 
     /* split tags into array */
 
