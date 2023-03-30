@@ -187,4 +187,18 @@ generateAuthors();
 
 function authorClickHandler(event){
 
+  event.preventDefault();
+
+  const author = this.getAttribute('href').replace('#author-', '');
+
+  /* find all articles of each author */
+  const articles = document.querySelectorAll(optArticleSelector + '[data-author="' + author + '"]');
+
+  generateTitleLinks(optArticleSelector + '[data-author="' + author + '"]');
 }
+
+function addClickListenersToAuthors(){
+
+  const authorLinks = document.querySelectorAll(optArticleAuthorSelector + ' a');
+  
+  }
