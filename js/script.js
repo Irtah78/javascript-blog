@@ -241,18 +241,12 @@ function addClickListenersToAuthors(){
    /* find all links to tags */
    const authors = document.querySelectorAll('.post-author a');
 
-  /* START LOOP: for each link of an author */
-  for (let link of authorLinks){
-
-  /* find an author */
-  link.addEventListener('click', authorClickHandler);
-
- /* END LOOP: for each link of an author */
+  /* START LOOP: for each author */
+  for(let author of authors){
+    /* add authorClickHandler as event listener for that link */
+      author.addEventListener('click', authorClickHandler);
+    /* END LOOP: for each author */
   }
+}
 
-  }
-  generateTitleLinks();
-  generateTags();
-  generateAuthors();
-  addClickListenersToTags();
   addClickListenersToAuthors();
