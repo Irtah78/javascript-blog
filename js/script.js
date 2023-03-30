@@ -219,7 +219,16 @@ function authorClickHandler(event){
 
     /* END LOOP: for each active author link */
     }
-  
+ /* find all author links with "href" attribute equal to the "href" constant */
+ const authorLinks = document.querySelectorAll('a[href="' + href + '"]');
+ console.log(authorLinks);
+
+  /* START LOOP: for each found tag link */
+  for ( let authorLink of authorLinks){
+    /* add class active */
+      authorLink.classList.add('active');
+    /* END LOOP: for each found tag link */
+    }
 }
 
 function addClickListenersToAuthors(){
