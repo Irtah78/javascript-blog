@@ -175,15 +175,23 @@ function generateAuthors(){
   console.log(articles);
 
   let html = '';
-  
+
 /* START LOOP: for each article */
 for (let article of articles){
 
-/* find an author */
-  const author = article.querySelector(optArticleAuthorSelector).innerHTML;
-  article.setAttribute('data-author', author);
-  const authorLink = '<a href="#author-' + author + '">' + author + '</a>';
-article.querySelector(optArticleAuthorSelector).innerHTML = authorLink;
+ /* get tags from data-author attribute */
+    const articleAuthor = article.getAttribute('data-author');
+    console.log(articleAuthor);
+
+    const author = article.querySelector(authorList);
+
+    /* generate HTML of the link */
+
+    let authorHTML = '<li><a href="#' + articleAuthor +'"><span>' + author + '</span></a></li>';
+    
+    /* add generated code to html variable */
+    html = html + authorHTML;
+    console.log(html);
 
  /* END LOOP: for each article */
 }
