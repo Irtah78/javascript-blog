@@ -164,3 +164,9 @@ function addClickListenersToTags() {
 }
 }
 addClickListenersToTags();
+
+function generateAuthors(){
+const articles = document.querySelectorAll(optArticleSelector);
+const optArticleAuthorSelector = '.post-author';
+/* START LOOP: for each article */
+}
