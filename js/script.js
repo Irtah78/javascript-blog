@@ -167,9 +167,10 @@ addClickListenersToTags();
 
 function generateAuthors(){
 
+let allAuthors = {};
+
 /* find all articles */
 const articles = document.querySelectorAll(optArticleSelector);
-const optArticleAuthorSelector = '.post-author';
 
 /* START LOOP: for each article */
 for (let article of articles){
@@ -189,16 +190,36 @@ function authorClickHandler(event){
 
   event.preventDefault();
 
+  
+  /* get the name of an author from "href" of clicked link */
   const author = this.getAttribute('href').replace('#author-', '');
 
   /* find all articles of each author */
   const articles = document.querySelectorAll(optArticleSelector + '[data-author="' + author + '"]');
 
+  
+  /* generate list of titles of articles of each author */
   generateTitleLinks(optArticleSelector + '[data-author="' + author + '"]');
 }
 
 function addClickListenersToAuthors(){
 
-  const authorLinks = document.querySelectorAll(optArticleAuthorSelector + ' a');
   
+  /* find all links of each author */
+  const authorLinks = document.querySelectorAll(optArticleAuthorSelector + ' a');
+
+  /* START LOOP: for each link of an author */
+  for (let link of authorLinks){
+
+  /* find an author */
+  link.addEventListener('click', authorClickHandler);
+
+ /* END LOOP: for each link of an author */
   }
+
+  }
+  generateTitleLinks();
+  generateTags();
+  generateAuthors();
+  addClickListenersToTags();
+  addClickListenersToAuthors();
