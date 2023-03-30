@@ -27,6 +27,7 @@ function titleClickHandler(event) {
   const targetArticle = document.querySelector(articleSelector);
   /* add class 'active' to the correct article */
   const activeClass = 'active';
+  targetArticle.classList.add(activeClass);
 }
 
 const optArticleSelector = '.post',
@@ -41,37 +42,44 @@ function generateTitleLinks(customSelector = '') {
   titleList.innerHTML = '';
 
   /* find all the articles and save them to variable: articles */
-  const articles = document.querySelectorAll(optArticleSelector);
-  
+  const articles = document.querySelectorAll(
+    optArticleSelector + customSelector
+  );
+
   let html = '';
 
   for (let article of articles) {
     /* get the article id */
-    const articleId = article.getAttribute('id');
+    const articleId = article.getAttribute("id");
 
     /* find the title element */
     const titleElement = article.querySelector(optTitleSelector);
 
-    /* find and get the title from the title element */
-    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
-
+    /* get the title from the title element */
+    const title = titleElement.textContent;
 
     /* create HTML of the link */
     const linkHTML =
-    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      '<li><a href="#' + articleId + '"><span>' + title + "</span></a></li>";
+
     /* insert link into html variable */
-    html = html + linkHTML;
+    html += linkHTML;
   }
+
   titleList.innerHTML = html;
+
+  /* add event listener */
+  const links = document.querySelectorAll(".titles a");
+  console.log(links);
+  for (let link of links) {
+    link.addEventListener("click", titleClickHandler);
+  }
 }
- 
 generateTitleLinks();
 
-const links = document.querySelectorAll('.titles a');
-
-for(let link of links){
-  link.addEventListener('click', titleClickHandler);
-}
+function generateTags() {
+  /* find all articles */
+  const articles = document.querySelectorAll(optArticleSelector);
 
   /* START LOOP: for every article: */
   for (let article of articles) {
