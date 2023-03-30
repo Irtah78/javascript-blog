@@ -229,13 +229,17 @@ function authorClickHandler(event){
       authorLink.classList.add('active');
     /* END LOOP: for each found tag link */
     }
+
+     /* execute function "generateTitleLinks" with article selector as argument */
+  generateTitleLinks('[data-author="' + author + '"]')
+
+
 }
 
 function addClickListenersToAuthors(){
 
-  
-  /* find all links of each author */
-  const authorLinks = document.querySelectorAll(optArticleAuthorSelector + ' a');
+   /* find all links to tags */
+   const authors = document.querySelectorAll('.post-author a');
 
   /* START LOOP: for each link of an author */
   for (let link of authorLinks){
