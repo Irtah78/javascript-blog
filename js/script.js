@@ -46,7 +46,7 @@ function generateTitleLinks(customSelector = '') {
     optArticleSelector + customSelector
   );
 
-  let html = '';
+  let html = "";
 
   for (let article of articles) {
     /* get the article id */
