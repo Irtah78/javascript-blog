@@ -166,7 +166,25 @@ function addClickListenersToTags() {
 addClickListenersToTags();
 
 function generateAuthors(){
+
+/* find all articles */
 const articles = document.querySelectorAll(optArticleSelector);
 const optArticleAuthorSelector = '.post-author';
+
 /* START LOOP: for each article */
+for (let article of articles){
+
+/* find an author */
+  const author = article.querySelector(optArticleAuthorSelector).innerHTML;
+  article.setAttribute('data-author', author);
+  const authorLink = '<a href="#author-' + author + '">' + author + '</a>';
+article.querySelector(optArticleAuthorSelector).innerHTML = authorLink;
+
+ /* END LOOP: for each article */
+}
+}
+generateAuthors();
+
+function authorClickHandler(event){
+
 }
