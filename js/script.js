@@ -201,17 +201,17 @@ generateAuthors();
 function authorClickHandler(event){
 
   event.preventDefault();
+  const clickedElement = this;
+  /* make a new constant "href" and read the attribute "href" of the clicked element */
+  const href = clickedElement.getAttribute('href');
+  console.log(href);
+  /* make a new constant "author" and extract tag from the "href" constant */
+  const author = href.replace('#author-', '');
+  console.log(author);
+  /* find all author links with class active */
+  const authorActiveLinks = document.querySelectorAll('a.active[href^="#author-"]');
 
   
-  /* get the name of an author from "href" of clicked link */
-  const author = this.getAttribute('href').replace('#author-', '');
-
-  /* find all articles of each author */
-  const articles = document.querySelectorAll(optArticleSelector + '[data-author="' + author + '"]');
-
-  
-  /* generate list of titles of articles of each author */
-  generateTitleLinks(optArticleSelector + '[data-author="' + author + '"]');
 }
 
 function addClickListenersToAuthors(){
