@@ -165,8 +165,7 @@ function addClickListenersToTags() {
 addClickListenersToTags();
 
 function generateAuthors() {
-  /* remove contents of titleList */
-  const authorList = document.querySelector(optArticleAuthorSelector);
+ 
   /* find all authors */
   const articles = document.querySelectorAll(optArticleSelector);
 
@@ -176,7 +175,10 @@ function generateAuthors() {
   for (let article of articles) {
     /* get tags from data-author attribute */
     const articleAuthor = article.getAttribute('data-author');
+    const authorList = article.querySelector(optArticleAuthorSelector);
 
+ /* remove contents of titleList */
+ 
     /* generate HTML of the link */
 
     let authorHTML =
