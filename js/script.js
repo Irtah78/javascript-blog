@@ -3,7 +3,7 @@
 function titleClickHandler(event) {
   event.preventDefault();
   const clickedElement = this;
-  console.log("Link was clicked!");
+  console.log('Link was clicked!');
 
   /* remove class 'active' from all article links */
   const activeLinks = document.querySelectorAll('.titles a.active');
@@ -60,7 +60,7 @@ function generateTitleLinks(customSelector = '') {
 
     /* create HTML of the link */
     const linkHTML =
-      '<li><a href="#' + articleId + '"><span>' + title + "</span></a></li>";
+      '<li><a href="#' + articleId + '"><span>' + title + '</span></a></li>';
 
     /* insert link into html variable */
     html += linkHTML;
@@ -98,7 +98,7 @@ function generateTags() {
     /* START LOOP: for each tag */
     for (let tag of articleTagsArray) {
       /* generate HTML of the link */
-      const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + "</a></li> ";
+      const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li> ';
 
       /* add generated code to html variable */
       html += tagHTML;
@@ -170,7 +170,7 @@ function generateAuthors() {
   /* find all authors */
   const articles = document.querySelectorAll(optArticleSelector);
 
-  let html = "";
+  let html = '';
 
   /* START LOOP: for each article */
   for (let article of articles) {
@@ -184,7 +184,7 @@ function generateAuthors() {
       articleAuthor +
       '"><span>' +
       articleAuthor +
-      "</span></a></li>";
+      '</span></a></li>';
 
     /* add generated code to html variable */
     authorList.innerHTML = authorHTML;
